@@ -20,11 +20,202 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gradient-bg {
+            /* Animated multi-tone gradient */
+            background: linear-gradient(135deg, #2f4156 0%, #567c8d 35%, #2f4156 65%, #1d2a35 100%);
+            background-size: 300% 300%;
+            animation: gradientShift 20s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Decorative floating blobs */
+        .bg-decor {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-decor span.blob {
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle at 30% 30%, rgba(86, 124, 141, 0.45), rgba(47, 65, 86, 0.05) 70%);
+            filter: blur(55px);
+            opacity: 0.55;
+            mix-blend-mode: screen;
+            border-radius: 50%;
+            animation: blobFloat 38s linear infinite;
+        }
+
+        .bg-decor span.blob:nth-child(1) {
+            top: -10%;
+            left: -8%;
+            animation-duration: 42s;
+        }
+
+        .bg-decor span.blob:nth-child(2) {
+            top: 55%;
+            left: -12%;
+            animation-duration: 48s;
+            animation-delay: -8s;
+        }
+
+        .bg-decor span.blob:nth-child(3) {
+            top: 15%;
+            right: -12%;
+            animation-duration: 46s;
+            animation-delay: -15s;
+        }
+
+        .bg-decor span.blob:nth-child(4) {
+            bottom: -15%;
+            right: 5%;
+            animation-duration: 54s;
+            animation-delay: -22s;
+        }
+
+        .bg-decor span.blob:nth-child(5) {
+            top: 35%;
+            left: 35%;
+            width: 300px;
+            height: 300px;
+            animation-duration: 50s;
+            animation-delay: -30s;
+        }
+
+        @keyframes blobFloat {
+            0% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+
+            25% {
+                transform: translate3d(60px, -40px, 0) scale(1.15);
+            }
+
+            50% {
+                transform: translate3d(-30px, 50px, 0) scale(0.95);
+            }
+
+            75% {
+                transform: translate3d(-80px, -20px, 0) scale(1.1);
+            }
+
+            100% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .slide-in {
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .bounce-in {
+            animation: bounceIn 1s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+
+            70% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .sparkle {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* .sparkle::before {
+            content: '💙';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            animation: sparkle 2s infinite;
+        } */
+
+        @keyframes sparkle {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
 
 <body class="min-h-screen gradient-bg">
-   <div class="bg-decor" aria-hidden="true">
+    <!-- Animated Background Decoration -->
+    <div class="bg-decor" aria-hidden="true">
         <span class="blob"></span>
         <span class="blob"></span>
         <span class="blob"></span>
@@ -157,7 +348,92 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function showPage2() {
+            document.getElementById("page1").classList.add("hidden");
+            document.getElementById("page2").classList.remove("hidden");
+
+            // Trigger animations
+            setTimeout(() => {
+                document.querySelector("#page2 .bounce-in").style.animation =
+                    "bounceIn 1s ease-out";
+                document.querySelector("#page2 .slide-in").style.animation =
+                    "slideIn 0.8s ease-out";
+            }, 100);
+        }
+
+        function showPage1() {
+            document.getElementById("page2").classList.add("hidden");
+            document.getElementById("page1").classList.remove("hidden");
+
+            // Trigger animations
+            setTimeout(() => {
+                document.querySelector("#page1 .bounce-in").style.animation =
+                    "bounceIn 1s ease-out";
+                document.querySelector("#page1 .slide-in").style.animation =
+                    "slideIn 0.8s ease-out";
+            }, 100);
+        }
+
+        // Add some interactive sparkles
+        document.addEventListener("mousemove", function (e) {
+            if (Math.random() > 0.98) {
+                createSparkle(e.clientX, e.clientY);
+            }
+        });
+
+        function createSparkle(x, y) {
+            const sparkle = document.createElement("div");
+            sparkle.innerHTML = "💙";
+            sparkle.style.position = "fixed";
+            sparkle.style.left = x + "px";
+            sparkle.style.top = y + "px";
+            sparkle.style.pointerEvents = "none";
+            sparkle.style.fontSize = "20px";
+            sparkle.style.zIndex = "1000";
+            sparkle.style.animation = "sparkle 1s ease-out forwards";
+
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        }
+        (function () {
+            function c() {
+                var b = a.contentDocument || a.contentWindow.document;
+                if (b) {
+                    var d = b.createElement("script");
+                    d.innerHTML =
+                        "window.__CF$cv$params={r:'97cbad88f5bcfdc2',t:'MTc1NzQ3MzI1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                    b.getElementsByTagName("head")[0].appendChild(d);
+                }
+            }
+            if (document.body) {
+                var a = document.createElement("iframe");
+                a.height = 1;
+                a.width = 1;
+                a.style.position = "absolute";
+                a.style.top = 0;
+                a.style.left = 0;
+                a.style.border = "none";
+                a.style.visibility = "hidden";
+                document.body.appendChild(a);
+                if ("loading" !== document.readyState) c();
+                else if (window.addEventListener)
+                    document.addEventListener("DOMContentLoaded", c);
+                else {
+                    var e = document.onreadystatechange || function () { };
+                    document.onreadystatechange = function (b) {
+                        e(b);
+                        "loading" !== document.readyState &&
+                            ((document.onreadystatechange = e), c());
+                    };
+                }
+            }
+        })();
+
+    </script>
 </body>
 
 </html>
