@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nayla Shifa Aurelia - Perkenalan Diri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#2f4156',
+                        'teal': '#567c8d',
+                        'sky': '#c8d9e6',
+                        'beige': '#f5efeb'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="min-h-screen gradient-bg">
+    <!-- Animated Background Decoration -->
+    <div class="bg-decor" aria-hidden="true">
+        <span class="blob"></span>
+        <span class="blob"></span>
+        <span class="blob"></span>
+        <span class="blob"></span>
+        <span class="blob"></span>
+    </div>
+    <!-- Halaman Pertama -->
+    <div id="page1" class="min-h-screen flex items-center justify-center p-6 relative z-10">
+        <div class="max-w-4xl w-full">
+            <div
+                class="bg-beige/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 text-center sparkle border border-sky/30">
+                <!-- Foto Placeholder -->
+                <div class="mb-8 bounce-in">
+                    <div
+                        class="w-48 h-48 mx-auto bg-teal rounded-full flex items-center justify-center shadow-xl floating">
+                        <img src="images/1.JPEG" alt="" class="w-full h-full object-cover rounded-full">
+                    </div>
+                </div>
+
+                <!-- Informasi Diri -->
+                <div class="space-y-6 slide-in">
+                    <h1 class="text-4xl md:text-5xl font-bold text-navy mb-2">
+                        Nayla Shifa Aurelia
+                    </h1>
+
+                    <div class="bg-sky/50 rounded-2xl p-6 border border-teal/40 text-left">
+                        <h2 class="text-navy font-semibold text-lg mb-3 tracking-wide">Informasi Singkat</h2>
+                        <dl class="space-y-2">
+                            <div class="flex gap-4">
+                                <dt class="w-40 text-navy font-medium">Panggilan</dt>
+                                <dd class="text-teal font-semibold">Aurel</dd>
+                            </div>
+                            <div class="flex gap-4">
+                                <dt class="w-40 text-navy font-medium">NIM</dt>
+                                <dd class="text-navy font-semibold">M0405241060</dd>
+                            </div>
+                            <div class="flex gap-4">
+                                <dt class="w-40 text-navy font-medium">Program Studi</dt>
+                                <dd class="text-teal font-semibold">Kecerdasan Buatan (AI)</dd>
+                            </div>
+                            <div class="flex gap-4">
+                                <dt class="w-40 text-navy font-medium">Proxy</dt>
+                                <dd class="text-teal font-semibold">Euclid</dd>
+                            </div>
+                        </dl>
+                    </div>
+
+                    <button onclick="showPage2()"
+                        class="bg-teal text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 floating hover:bg-teal/80">
+                        Kenalan Lebih Lanjut!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Halaman Kedua -->
+    <div id="page2" class="min-h-screen flex items-center justify-center p-6 hidden relative z-10">
+        <div class="max-w-4xl w-full">
+            <div class="bg-beige/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 sparkle border border-sky/30">
+                <!-- Header -->
+                <div class="text-center mb-8 bounce-in">
+                    <div
+                        class="w-32 h-32 mx-auto bg-sky rounded-full flex items-center justify-center shadow-xl floating mb-6 border-4 border-teal/30">
+                        <img src="images/2.JPEG" alt="" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-navy mb-2">About Me! 😸</h2>
+                </div>
+
+                <!-- Content -->
+                <div class="slide-in">
+                    <div class="bg-sky/30 rounded-2xl p-6 md:p-8 space-y-6 border border-teal/40">
+                        <p class="text-lg text-navy leading-relaxed">
+                            <span class="text-2xl">👋</span> <strong>halooo guys!</strong> <span
+                                class="text-2xl">👀</span> sedikit funfact tentang aku, aku suka banget makeup dan
+                            shopping! dua hal itu bikin aku happy banget.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4 justify-center my-6">
+                            <div class="bg-beige/80 rounded-full px-4 py-2 shadow-md border border-teal/40">
+                                <span class="text-2xl">💄</span> <span class="text-navy font-medium">Makeup</span>
+                            </div>
+                            <div class="bg-beige/80 rounded-full px-4 py-2 shadow-md border border-teal/40">
+                                <span class="text-2xl">🛍️</span> <span class="text-navy font-medium">Shopping</span>
+                            </div>
+                        </div>
+
+                        <p class="text-lg text-navy leading-relaxed">
+                            ohiya! aku juga suka bgt makan pizza dan salmon sashimi! <span class="text-2xl">🍣</span>
+                            funfact aku juga suka banget makan coklat dan yang manis manis dan aku gabisa makan pedess.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4 justify-center my-6">
+                            <div class="bg-beige/80 rounded-full px-4 py-2 shadow-md border border-teal/40">
+                                <span class="text-2xl">🍕</span> <span class="text-navy font-medium">Pizza</span>
+                            </div>
+                            <div class="bg-beige/80 rounded-full px-4 py-2 shadow-md border border-teal/40">
+                                <span class="text-2xl">🍣</span> <span class="text-navy font-medium">Salmon
+                                    Sashimi</span>
+                            </div>
+                            <div class="bg-beige/80 rounded-full px-4 py-2 shadow-md border border-teal/40">
+                                <span class="text-2xl">🍫</span> <span class="text-navy font-medium">Coklat</span>
+                            </div>
+                            <div class="bg-beige/80 rounded-full px-4 py-2 shadow-md border border-teal/40">
+                                <span class="text-2xl">🚫🌶️</span> <span class="text-navy font-medium">No Spicy!</span>
+                            </div>
+                        </div>
+
+                        <p class="text-lg text-navy leading-relaxed">
+                            kalau buat bakat.. aku kayanya punya bakat main ice skating <span class="text-2xl">😋</span>
+                        </p>
+
+                        <div class="text-center mt-6">
+                            <div class="bg-navy rounded-full px-6 py-3 inline-block shadow-lg">
+                                <span class="text-2xl">⛸️</span> <span class="text-white font-semibold text-lg">Ice
+                                    Skating Talent!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-8">
+                        <button onclick="showPage1()"
+                            class="bg-navy text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 floating hover:bg-navy/80">
+                            Kembali ke Profil
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
